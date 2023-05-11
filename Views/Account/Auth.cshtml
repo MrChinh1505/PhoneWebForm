@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Auth";
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-warning mb-3">@TempData["Message"]</div>
+}
+<h3 style="text-align:center;">Login Page</h3>
+<div class="card-body">
+    <form asp-action="Auth" asp-controller="Account" method="post" style="margin: auto; max-width: 330px;">
+        <b><p style="color: red; text-align: center;">@ViewBag.msg</p></b>
+        <div class="form-group">
+            <label for="uname">Username:</label>
+            <input type="text" name="username" value="admin" class="form-control" placeholder="Enter username" required>
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="pass">Password:</label>
+            <input type="password" name="password" value="admin" class="form-control" placeholder="Enter password" required>
+        </div>
+        <br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+        </div>
+    </form>
+</div>
+

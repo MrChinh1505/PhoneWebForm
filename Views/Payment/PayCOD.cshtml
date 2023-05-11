@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MobilePhone.Models.CartItem>
+@{
+    ViewData["Title"] = "PayCOD";
+}
+<form method="POST" action="@Url.Action("ConfirmOrder","Order")" >
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Sản phẩm</h4>
+            <div class="list-group">
+                @foreach (var cart in Model)
+                {
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">@cart.productName</h5>
+                            <small>@cart.price</small>
+                        </div>
+                        <p class="mb-1">Amount: @cart.quantity</p>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h4>THÔNG TIN ĐẶT HÀNG</h4>
+            <div class="list-group">
+                <div class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Name:</h5>
+                        <p class="mb-1">@ViewBag.Name</p>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Address:</h5>
+                        <p class="mb-1">@ViewBag.Address</p>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Contact:</h5>
+                        <p class="mb-1">@ViewBag.Contact</p>
+                    </div>
+                </div>
+                <div class="list-group-item">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Total amount:</h5>
+                        <p class="mb-1">@ViewBag.TotalAmount</p>
+                    </div>
+                </div>
+                <div class="list-group-item mt-2">
+                    <input type="hidden" value="@ViewBag.OrderID" name="OrderID" />
+                    <input type="hidden" value="@ViewBag.AgentID" name="agentID" />
+                    <input type="hidden" value="@ViewBag.TotalAmount" name="total" />
+                    <input type="hidden" value="unpaid" name="pstatus" />
+                    <button type="submit" class="btn btn-primary">Confirm Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

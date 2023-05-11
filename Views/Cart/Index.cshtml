@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MobilePhone.Models.CartItem>
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<div class="container d-flex ">
+    <div class="table-responsive col-8">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Prodcut ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var p in Model)
+                    {
+                        <tr>
+                            <td>@p.productID</td>
+                            <td>@p.productName</td>
+                            <td>@p.price</td>
+                            <td>
+                                <input type="number" value="@p.quantity" onchange="updateCart('@p.productID', this)" class="w-25" min="1" max="15">
+                            </td>
+                            <td>@(p.quantity * p.price)</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-right">
+                        <a class="btn btn-primary" asp-controller="Payment" asp-action="PayCOD">Cash on delivery</a>
+                        <a class="btn btn-primary" asp-controller="Payment" asp-action="PayMomo">Checkout with Momo</a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+    <div class="card p-2 border bg-light col-4 d-flex flex-column ms-5">
+        <div class="p-2">Agent ID - @ViewBag.AgentID  </div>
+        <div class="p-2">Agent Name - @ViewBag.AgentName </div>
+        <div class="p-2">Agent Address - @ViewBag.Address </div>
+        <div class="p-2">Agent Contact - @ViewBag.Contact </div>
+        <div class="p-2 border-top">
+            Total: @(Model != null ? Model.Sum(p => p.price * p.quantity) : 0)
+        </div>
+    </div>
+</div>
+<script src="~/js/cart.js"></script>
+
+ <!--src="https://developers.momo.vn/v3/assets/images/logo-custom2-57d6118fe524633b89befe8cb63a3956.png"-->

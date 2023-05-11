@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MobilePhone.Models.Delivery> 
+
+@{
+    ViewData["Title"] = "History";
+}
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Agent ID</th>
+                <th>Payment Status</th>
+                <th>Delivery Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.OrderID</td>
+                    <td>@d.AgentID</td>
+                    <td>@d.paymentStatus</td>
+                    <td>@d.deliverStatus</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

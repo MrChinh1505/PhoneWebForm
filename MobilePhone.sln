@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MobilePhone", "MobilePhone.csproj", "{BEE19E84-E33C-4953-8777-B4FFA1AC0EA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEE19E84-E33C-4953-8777-B4FFA1AC0EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE19E84-E33C-4953-8777-B4FFA1AC0EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE19E84-E33C-4953-8777-B4FFA1AC0EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE19E84-E33C-4953-8777-B4FFA1AC0EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF56EEF4-2DE4-465A-85D3-F243A0C1E647}
+	EndGlobalSection
+EndGlobal

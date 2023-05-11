@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MobilePhone.Models.Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<section>
+    <div class="container my-5">
+        <header class="mb-4">
+            <h3>Products</h3>
+        </header>
+        <div class="row">
+
+            @foreach (var item in Model)
+            { 
+                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                    <div class="card w-100 my-2 shadow-2-strong">
+                        <img src="~/image/@(item.ProductID).png" class="card-img-top" style="aspect-ratio: 1 / 1" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@item.ProductName</h5>
+                            <p class="card-text">@item.Price</p>
+                            <div class="card-footer d-flex align-items-end mt-auto">
+                                <button onclick="addToCart('@item.ProductID', 1)" class="btn btn-primary shadow-0 me-1">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<script src="~/js/cart.js"></script>
